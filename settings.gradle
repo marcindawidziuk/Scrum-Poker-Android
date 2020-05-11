@@ -1,0 +1,2 @@
+rootProject.name='Scrum Poker'
+include ':app'
