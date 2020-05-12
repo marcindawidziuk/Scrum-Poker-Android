@@ -10,7 +10,6 @@
         android:name="uk.marcin.scrumpoker.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
-
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
@@ -22,7 +21,16 @@
         tools:layout="@layout/fragment_second">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_SecondFragment_to_cardDetailsFragment"
+            app:destination="@id/cardDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardDetailsFragment"
+        android:name="uk.marcin.scrumpoker.CardDetailsFragment"
+        android:label="CardDetailsFragment" >
+        <argument
+            android:name="mvrx:arg"
+            app:argType="string" />
+
     </fragment>
 </navigation>

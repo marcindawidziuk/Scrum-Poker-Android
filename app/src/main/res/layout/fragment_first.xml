@@ -26,14 +26,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_first" />
 
-    <EditText
-        android:id="@+id/editText_roomName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Room Name"
+        app:layout_constraintTop_toBottomOf="@+id/textview_first">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_roomName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintTop_toBottomOf="@+id/textview_first"
-        tools:layout_editor_absoluteX="103dp" />
+        android:layout_marginStart="8dp"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/button_first"
+        app:layout_constraintTop_toTopOf="@+id/button_first" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
