@@ -9,16 +9,16 @@
         android:id="@+id/FirstFragment"
         android:name="uk.marcin.scrumpoker.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_landing">
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="uk.marcin.scrumpoker.SecondFragment"
+        android:name="uk.marcin.scrumpoker.CardSelectionFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_card_selection">
 
         <action
             android:id="@+id/action_SecondFragment_to_cardDetailsFragment"

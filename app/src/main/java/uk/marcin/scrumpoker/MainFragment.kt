@@ -1,17 +1,15 @@
 package uk.marcin.scrumpoker
 
 import android.os.Bundle
-import android.text.Spanned
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.airbnb.mvrx.*
-import kotlinx.android.synthetic.main.fragment_first.*
+import kotlinx.android.synthetic.main.fragment_landing.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -21,7 +19,8 @@ class FirstFragment : BaseMvRxFragment() {
 
     override fun invalidate(): Unit = withState(viewModel) { state ->
 //        loadingView.isVisible = state.listing is Loadingc
-        editText_roomName.setTextIfDifferent(state.roomName);
+        editText_roomName.setTextIfDifferent(state.roomName)
+        editText_userName.setTextIfDifferent(state.userName)
     }
 
 
@@ -30,7 +29,7 @@ class FirstFragment : BaseMvRxFragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return inflater.inflate(R.layout.fragment_landing, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,7 +49,7 @@ class FirstFragment : BaseMvRxFragment() {
 //class MyViewModel(initialState: MyState) : BaseMvRxViewModel(initialState, debugMode = true)
 abstract class MvRxViewModel<S : MvRxState>(val initialState: S) : BaseMvRxViewModel<S>(initialState, debugMode = BuildConfig.DEBUG)
 
-data class MyState(val roomName: String = "") : MvRxState
+data class MyState(val userName: String = "Marcin", val roomName: String = "") : MvRxState
 //
 class MyViewModel(initialState: MyState) : MvRxViewModel<MyState>(initialState) {
     fun updateRoomName(toString: String) {

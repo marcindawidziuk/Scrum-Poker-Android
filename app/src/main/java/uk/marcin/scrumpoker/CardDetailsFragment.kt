@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import com.airbnb.mvrx.*
 import kotlinx.android.synthetic.main.fragment_card_details.*
-import kotlinx.android.synthetic.main.fragment_card_details.view.*
 
 data class CardDetailsState(val isShowingCard: Boolean = false, val selectedCard: String = "") : MvRxState {
     constructor(arg: String): this(selectedCard = arg)
@@ -18,6 +16,7 @@ class CardDetailsViewModel(initialState: CardDetailsState) : MvRxViewModel<CardD
         setState {
             copy(isShowingCard = !isShowingCard)
         }
+
     }
 }
 
@@ -26,9 +25,8 @@ class CardDetailsFragment : BaseMvRxFragment() {
     private val selectedCard: String by args()
 
     override fun invalidate() = withState(viewModel) {
-//        textView_selectedCard.isVisible = it.isShowingCard
-        textView_selectedCard.text = if (it.isShowingCard) it.selectedCard else "\uD83C\uDCCF"
-        button_showVote.text = if (it.isShowingCard) "Hide vote" else "Show vote"
+        textView_selectedCard.text = if (it.isShowingCard) it.selectedCard else "X"
+        textView_hint.text = if (it.isShowingCard) "Tap to hide your card" else "Tap to show your card"
     }
 
     override fun onCreateView(
@@ -41,18 +39,9 @@ class CardDetailsFragment : BaseMvRxFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        view.button_showVote.setOnClickListener {
+        constraintLayout.setOnClickListener {
             viewModel.toggleVote()
         }
-
-//        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-//        }
-
-//        editText_roomName.addTextChangedListener {
-//            viewModel.updateRoomName(it.toString())
-//        };
     }
 
     companion object {

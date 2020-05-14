@@ -5,35 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_second.view.*
+import kotlinx.android.synthetic.main.fragment_card_selection.view.*
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
-class SecondFragment : Fragment() {
+class CardSelectionFragment : Fragment() {
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        return inflater.inflate(R.layout.fragment_card_selection, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        Destina
-//        findNavController().
-
-//        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         val onClickListener = View.OnClickListener { v ->
-            val card = v as Button
-            val directions = SecondFragmentDirections.actionSecondFragmentToCardDetailsFragment(card.text.toString())
-            findNavController().navigate(directions);
+            val button = v as Button
+            val directions = CardSelectionFragmentDirections.actionSecondFragmentToCardDetailsFragment(button.text.toString())
+            findNavController().navigate(directions)
         }
         view.button2.setOnClickListener(onClickListener)
         view.button3.setOnClickListener(onClickListener)
@@ -43,10 +34,9 @@ class SecondFragment : Fragment() {
         view.button7.setOnClickListener(onClickListener)
         view.button8.setOnClickListener(onClickListener)
         view.button9.setOnClickListener(onClickListener)
-//        view.button2.setOnClickListener {
-//            val directions = SecondFragmentDirections.actionSecondFragmentToCardDetailsFragment("0")
-//
-//            findNavController().navigate(directions);
-//        }
+        view.button10.setOnClickListener(onClickListener)
+        view.button11.setOnClickListener(onClickListener)
+        view.button12.setOnClickListener(onClickListener)
+        view.button13.setOnClickListener(onClickListener)
     }
 }
