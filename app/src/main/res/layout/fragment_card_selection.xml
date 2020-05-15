@@ -62,7 +62,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/colorPrimaryLight"/>
+        app:strokeColor="@color/colorPrimaryLight" />
 
     <Button
         android:id="@+id/button4"
