@@ -9,6 +9,10 @@
 
     <Button
         android:id="@+id/button13"
+        android:layout_margin="@dimen/card_selection_margin"
+        app:strokeColor="@color/colorPrimaryLight"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/colorOnPrimary"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="☕"
@@ -29,42 +33,60 @@
 
     <Button
         android:id="@+id/button2"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_margin="@dimen/card_selection_margin"
         android:text="0"
+        android:textColor="@color/colorOnPrimary"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/colorPrimaryLight"
+        />
 
     <Button
         android:id="@+id/button3"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:textSize="36sp"
+        android:layout_margin="@dimen/card_selection_margin"
         android:text="0.5"
+        android:textColor="@color/colorOnPrimary"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/button7"
         app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/colorPrimaryLight"/>
 
     <Button
         android:id="@+id/button4"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:textSize="36sp"
+        android:layout_margin="@dimen/card_selection_margin"
         android:text="1"
+        android:textColor="@color/colorOnPrimary"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/colorPrimaryLight"
+        />
 
     <Button
         android:id="@+id/button5"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/colorOnPrimary"
+        app:strokeColor="@color/colorPrimaryLight"
+        android:layout_margin="@dimen/card_selection_margin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textSize="36sp"
@@ -77,6 +99,10 @@
 
     <Button
         android:id="@+id/button6"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/colorOnPrimary"
+        app:strokeColor="@color/colorPrimaryLight"
+        android:layout_margin="@dimen/card_selection_margin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textSize="36sp"
@@ -89,6 +115,10 @@
 
     <Button
         android:id="@+id/button7"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/colorOnPrimary"
+        app:strokeColor="@color/colorPrimaryLight"
+        android:layout_margin="@dimen/card_selection_margin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textSize="36sp"
@@ -101,6 +131,10 @@
 
     <Button
         android:id="@+id/button8"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/colorOnPrimary"
+        app:strokeColor="@color/colorPrimaryLight"
+        android:layout_margin="@dimen/card_selection_margin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textSize="36sp"
@@ -113,6 +147,10 @@
 
     <Button
         android:id="@+id/button9"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/colorOnPrimary"
+        app:strokeColor="@color/colorPrimaryLight"
+        android:layout_margin="@dimen/card_selection_margin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textSize="36sp"
@@ -125,6 +163,10 @@
 
     <Button
         android:id="@+id/button10"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/colorOnPrimary"
+        app:strokeColor="@color/colorPrimaryLight"
+        android:layout_margin="@dimen/card_selection_margin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textSize="36sp"
@@ -137,6 +179,10 @@
 
     <Button
         android:id="@+id/button11"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/colorOnPrimary"
+        app:strokeColor="@color/colorPrimaryLight"
+        android:layout_margin="@dimen/card_selection_margin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textSize="36sp"
@@ -149,6 +195,10 @@
 
     <Button
         android:id="@+id/button12"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/colorOnPrimary"
+        app:strokeColor="@color/colorPrimaryLight"
+        android:layout_margin="@dimen/card_selection_margin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textSize="36sp"
