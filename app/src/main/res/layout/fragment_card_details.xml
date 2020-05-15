@@ -1,35 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:keepScreenOn="true"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
 
-    <TextView
-        android:id="@+id/textView_selectedCard"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="300sp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_cardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="2" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:id="@+id/textView_selectedCardInverted"
+            android:layout_width="379dp"
+            android:layout_height="match_parent"
+            android:scaleY="1.2"
+            android:fontFamily="@font/roboto_mono"
+            app:autoSizeMaxTextSize="300dp"
+            app:autoSizeTextType="uniform"
+            android:elevation="2dp"
+            android:gravity="top"
+            android:maxLines="1"
+            android:textColor="@color/colorOnPrimary"
+            android:textSize="100sp"
+            tools:text="2" />
+
+        <TextView
+            android:id="@+id/textView_selectedCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            app:autoSizeMaxTextSize="300dp"
+            app:autoSizeTextType="uniform"
+            android:elevation="2dp"
+            android:scaleY="1.2"
+            android:fontFamily="@font/roboto_mono"
+            android:rotation="180"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorOnPrimary"
+            tools:text="2"
+            tools:visibility="visible" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/textView_hint"
+        android:elevation="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,6 +26,7 @@ class CardDetailsFragment : BaseMvRxFragment() {
 
     override fun invalidate() = withState(viewModel) {
         textView_selectedCard.text = if (it.isShowingCard) it.selectedCard else "X"
+        textView_selectedCardInverted.text = if (it.isShowingCard) it.selectedCard else "X"
         textView_hint.text = if (it.isShowingCard) "Tap to hide your card" else "Tap to show your card"
     }
 
