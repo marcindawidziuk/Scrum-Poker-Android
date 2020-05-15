@@ -25,10 +25,10 @@
         android:layout_marginTop="32dp"
         android:text="Play offline"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryLight"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:strokeColor="@color/colorPrimary" />
+        app:strokeColor="@color/colorPrimaryLight" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -38,6 +38,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:hint="Your Name"
+        app:hintTextColor="@color/colorPrimaryLight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -56,6 +57,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:hint="Room Name"
+        app:hintTextColor="@color/colorPrimaryLight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +74,7 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Start Online Session"
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
