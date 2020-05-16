@@ -5,4 +5,6 @@
     <color name="colorPrimaryDark">#667eea</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorOnPrimary">#222</color>
+    <color name="cardBackBackground">#ddd</color>
+    <color name="cardFrontBackground">#e6ecff</color>
 </resources>

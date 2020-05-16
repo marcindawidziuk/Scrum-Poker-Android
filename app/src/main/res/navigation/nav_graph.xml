@@ -12,8 +12,11 @@
         tools:layout="@layout/fragment_landing">
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
+            app:destination="@id/SecondFragment"
+            app:enterAnim="@anim/slide_out_top"
+            app:exitAnim="@anim/slide_in_top"
+            app:popEnterAnim="@anim/slide_out_top"
+            app:popExitAnim="@anim/slide_in_top" />    </fragment>
     <fragment
         android:id="@+id/SecondFragment"
         android:name="uk.marcin.scrumpoker.CardSelectionFragment"
@@ -22,7 +25,11 @@
 
         <action
             android:id="@+id/action_SecondFragment_to_cardDetailsFragment"
-            app:destination="@id/cardDetailsFragment" />
+            app:destination="@id/cardDetailsFragment"
+            app:enterAnim="@anim/slide_out_top"
+            app:exitAnim="@anim/slide_in_top"
+            app:popEnterAnim="@anim/slide_out_top"
+            app:popExitAnim="@anim/slide_in_top" />
     </fragment>
     <fragment
         android:id="@+id/cardDetailsFragment"

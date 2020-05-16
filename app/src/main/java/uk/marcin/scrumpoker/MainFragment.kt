@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.airbnb.mvrx.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_landing.*
 
 /**
@@ -36,13 +38,24 @@ class FirstFragment : BaseMvRxFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            val directions = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+            findNavController().navigate(directions)
         }
+
+        showActionBar()
 
         editText_roomName.addTextChangedListener {
             viewModel.updateRoomName(it.toString())
-//            editText_roomName.setTextIfDifferent(it)
         };
+    }
+
+    private fun showActionBar() {
+        val activity = requireActivity() as MainActivity
+        val ab = (requireActivity() as AppCompatActivity).supportActionBar
+        if (ab != null && !ab.isShowing) {
+            ab.show()
+            activity.toolbar.animate().translationY(0f).setDuration(600L).start()
+        }
     }
 }
 

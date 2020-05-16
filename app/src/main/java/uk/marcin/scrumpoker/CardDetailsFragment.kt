@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.DecelerateInterpolator
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.airbnb.mvrx.*
@@ -31,17 +33,17 @@ class CardDetailsFragment : BaseMvRxFragment() {
     private var isInitalised: Boolean = false
 
     override fun invalidate() = withState(viewModel) { state ->
-        textView_hint.text = if (state.isShowingCard) "Tap to hide your card" else "Tap to show your card"
-
         if (!isInitalised){
             isInitalised = true
+            updateCard(state)
             return@withState
         }
 
         cardView_cardContainer.animate().withLayer()
             .rotationY(90f)
             .rotationX(-20F)
-            .setDuration(80)
+            .setDuration(150)
+            .setInterpolator(AccelerateInterpolator(2f))
             .withEndAction {
                 val v = cardView_cardContainer
 
@@ -53,20 +55,15 @@ class CardDetailsFragment : BaseMvRxFragment() {
                 if (distance.isFinite() && distance > 0)
                     v.cameraDistance = distance
 
-                val colorId = if (state.isShowingCard) R.color.colorAccent else R.color.colorPrimaryLight
-                val color = ContextCompat.getColor(this.requireContext(), colorId);
-//                if (it.isShowingCard)
-//                    cardView_cardContainer.setCardBackgroundColor(color)
-                textView_cardSelected.isVisible = state.isShowingCard == false
-                textView_selectedCard.text = if (state.isShowingCard) state.selectedCard else ""
-                textView_selectedCardInverted.text = if (state.isShowingCard) state.selectedCard else ""
+                updateCard(state)
 
                 v.rotationY = -90f;
                 v.rotationX = -20f;
                 v.animate().withLayer()
                     .rotationY(0f)
                     .rotationX(0F)
-                    .setDuration(150)
+                    .setDuration(250)
+                    .setInterpolator(DecelerateInterpolator(2f))
                     .withEndAction {
                     }
                     .start();
@@ -79,6 +76,16 @@ class CardDetailsFragment : BaseMvRxFragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_card_details, container, false)
+    }
+
+    fun updateCard(state: CardDetailsState){
+        val colorId = if (state.isShowingCard) R.color.cardFrontBackground else R.color.cardBackBackground
+        val color = ContextCompat.getColor(this.requireContext(), colorId)
+        cardView_cardContainer.setCardBackgroundColor(color)
+
+        textView_cardSelected.isVisible = state.isShowingCard == false
+        textView_selectedCard.text = if (state.isShowingCard) state.selectedCard else ""
+        textView_selectedCardInverted.text = if (state.isShowingCard) state.selectedCard else ""
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

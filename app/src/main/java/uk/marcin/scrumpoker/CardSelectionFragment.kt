@@ -1,13 +1,16 @@
 package uk.marcin.scrumpoker
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_card_selection.view.*
+
 
 class CardSelectionFragment : Fragment() {
 
@@ -26,6 +29,9 @@ class CardSelectionFragment : Fragment() {
             val directions = CardSelectionFragmentDirections.actionSecondFragmentToCardDetailsFragment(button.text.toString())
             findNavController().navigate(directions)
         }
+
+        hideActionBar()
+
         view.button2.setOnClickListener(onClickListener)
         view.button3.setOnClickListener(onClickListener)
         view.button4.setOnClickListener(onClickListener)
@@ -39,4 +45,16 @@ class CardSelectionFragment : Fragment() {
         view.button12.setOnClickListener(onClickListener)
         view.button13.setOnClickListener(onClickListener)
     }
+
+    private fun hideActionBar() {
+        val activity = requireActivity() as MainActivity
+        val ab = (requireActivity() as AppCompatActivity).supportActionBar
+        if (ab != null && ab.isShowing) {
+            activity.toolbar.animate().translationY(-212f)
+                .setDuration(400L)
+                .withEndAction(ab::hide).start()
+        }
+    }
+
+
 }
