@@ -16,7 +16,13 @@
             app:enterAnim="@anim/slide_out_top"
             app:exitAnim="@anim/slide_in_top"
             app:popEnterAnim="@anim/slide_out_top"
-            app:popExitAnim="@anim/slide_in_top" />    </fragment>
+            app:popExitAnim="@anim/slide_in_top" />
+        <action
+            android:id="@+id/action_FirstFragment_to_roomFragment"
+            app:destination="@id/roomFragment"
+            app:enterAnim="@anim/slide_out_top"
+            app:exitAnim="@anim/slide_in_top" />
+    </fragment>
     <fragment
         android:id="@+id/SecondFragment"
         android:name="uk.marcin.scrumpoker.CardSelectionFragment"
@@ -40,4 +46,8 @@
             app:argType="string" />
 
     </fragment>
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="uk.marcin.scrumpoker.RoomFragment"
+        android:label="RoomFragment" />
 </navigation>

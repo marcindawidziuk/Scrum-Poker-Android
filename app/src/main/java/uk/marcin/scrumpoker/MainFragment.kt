@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.airbnb.mvrx.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_landing.*
+import kotlinx.android.synthetic.main.fragment_landing.view.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -39,6 +40,10 @@ class FirstFragment : BaseMvRxFragment() {
 
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
             val directions = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+            findNavController().navigate(directions)
+        }
+        view.button_startOnlineSession.setOnClickListener {
+            val directions = FirstFragmentDirections.actionFirstFragmentToRoomFragment()
             findNavController().navigate(directions)
         }
 

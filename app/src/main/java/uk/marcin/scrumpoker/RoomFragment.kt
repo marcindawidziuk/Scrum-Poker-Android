@@ -1,46 +1,67 @@
 package uk.marcin.scrumpoker
 
-import com.airbnb.mvrx.Async
-import com.airbnb.mvrx.BaseMvRxFragment
-import com.airbnb.mvrx.MvRxState
+import ch.kuon.phoenix.Presence
+import ch.kuon.phoenix.Socket
+import com.airbnb.mvrx.*
 
 
 data class User(val name: String)
 
-data class RoomState(val users: Async<List<User>>) : MvRxState
+data class RoomState(val users: Async<List<Presence.Entry>> = Uninitialized) : MvRxState
 
 class RoomViewModel(initialState: RoomState) : MvRxViewModel<RoomState>(initialState){
+    private var socket : Socket
     init {
-        val url = "ws://localhost:4444/socket"
+        val url = "ws://test.marcin.uk/socket/?user_id=Test&vsn=2.0.0"
         val sd = Socket(url)
+        socket = sd
 
         sd.connect()
 
-        val chan = sd.channel("auth:login")
+        val channel = sd.channel("room:test:lobby")
+        val presence = Presence(channel)
 
-        chan
+        presence.onSync {
+            setState {
+                copy(users = Success(presence.list()))
+            }
+        }
+
+        channel
             .join()
             .receive("ok") { msg ->
                 // channel is connected
+                System.out.println("Join success, got messages: " + msg.toString())
             }
             .receive("error") { msg ->
-                // channel did not connected
+                System.out.println("Join ERROR, got messages: " + msg.toString())
             }
             .receive("timeout") { msg ->
-                // connection timeout
+                System.out.println("Join TIMEOUT, got messages: " + msg.toString())
             }
 
-        chan
+        channel
             .push("hello")
             .receive("ok") { msg ->
                 // sent hello and got msg back
             }
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        socket.disconnect()
+    }
 }
 
 
 class RoomFragment : BaseMvRxFragment(){
-    override fun invalidate()
+    private val viewModel: RoomViewModel by fragmentViewModel()
+    override fun invalidate() = withState(viewModel){
+
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+    }
 }
