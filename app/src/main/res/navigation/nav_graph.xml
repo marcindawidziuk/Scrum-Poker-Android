@@ -21,7 +21,11 @@
             android:id="@+id/action_FirstFragment_to_roomFragment"
             app:destination="@id/roomFragment"
             app:enterAnim="@anim/slide_out_top"
-            app:exitAnim="@anim/slide_in_top" />
+            app:exitAnim="@anim/slide_in_top" >
+        <argument
+            android:name="mvrx:arg"
+            app:argType="uk.marcin.scrumpoker.RoomArgs" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"

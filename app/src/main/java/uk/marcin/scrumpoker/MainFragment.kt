@@ -43,8 +43,11 @@ class FirstFragment : BaseMvRxFragment() {
             findNavController().navigate(directions)
         }
         view.button_startOnlineSession.setOnClickListener {
-            val directions = FirstFragmentDirections.actionFirstFragmentToRoomFragment()
-            findNavController().navigate(directions)
+            withState(viewModel){state ->
+                val args = RoomArgs(state.roomName, state.userName)
+                val directions = FirstFragmentDirections.actionFirstFragmentToRoomFragment(args)
+                findNavController().navigate(directions)
+            }
         }
 
         showActionBar()
