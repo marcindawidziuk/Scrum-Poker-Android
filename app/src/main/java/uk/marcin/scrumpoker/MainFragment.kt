@@ -13,6 +13,7 @@ import com.airbnb.mvrx.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_landing.*
 import kotlinx.android.synthetic.main.fragment_landing.view.*
+import uk.marcin.scrumpoker.room.RoomArgs
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -44,7 +45,10 @@ class FirstFragment : BaseMvRxFragment() {
         }
         view.button_startOnlineSession.setOnClickListener {
             withState(viewModel){state ->
-                val args = RoomArgs(state.roomName, state.userName)
+                val args = RoomArgs(
+                    state.roomName,
+                    state.userName
+                )
                 val directions = FirstFragmentDirections.actionFirstFragmentToRoomFragment(args)
                 findNavController().navigate(directions)
             }
@@ -70,7 +74,7 @@ class FirstFragment : BaseMvRxFragment() {
 //class MyViewModel(initialState: MyState) : BaseMvRxViewModel(initialState, debugMode = true)
 abstract class MvRxViewModel<S : MvRxState>(val initialState: S) : BaseMvRxViewModel<S>(initialState, debugMode = BuildConfig.DEBUG)
 
-data class MyState(val userName: String = "Marcin", val roomName: String = "") : MvRxState
+data class MyState(val userName: String = "Marcin", val roomName: String = "test") : MvRxState
 //
 class MyViewModel(initialState: MyState) : MvRxViewModel<MyState>(initialState) {
     fun updateRoomName(toString: String) {

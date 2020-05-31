@@ -24,7 +24,7 @@
             app:exitAnim="@anim/slide_in_top" >
         <argument
             android:name="mvrx:arg"
-            app:argType="uk.marcin.scrumpoker.RoomArgs" />
+            app:argType="uk.marcin.scrumpoker.room.RoomArgs" />
         </action>
     </fragment>
     <fragment
@@ -52,6 +52,6 @@
     </fragment>
     <fragment
         android:id="@+id/roomFragment"
-        android:name="uk.marcin.scrumpoker.RoomFragment"
+        android:name="uk.marcin.scrumpoker.room.RoomFragment"
         android:label="RoomFragment" />
 </navigation>
